@@ -1,12 +1,11 @@
-# Example netlify.toml for a Vite SSR project
+# This should be inside my-project/netlify.toml
+
 [build]
-  # This command builds both client and server assets
   command = "npm run build"
-  # The publish directory should be the 'client' build output
-  publish = "build/client" 
-  # The server part of your app will be deployed as a Netlify Function
+  publish = "build/client"  # Or dist/client, depending on your build output
   functions = "netlify/functions"
 
+# THIS IS THE CRITICAL PART THAT FIXES THE "PAGE NOT FOUND" ERROR
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"
