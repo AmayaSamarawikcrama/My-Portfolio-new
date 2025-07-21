@@ -1,0 +1,13 @@
+# Example netlify.toml for a Vite SSR project
+[build]
+  # This command builds both client and server assets
+  command = "npm run build"
+  # The publish directory should be the 'client' build output
+  publish = "build/client" 
+  # The server part of your app will be deployed as a Netlify Function
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
